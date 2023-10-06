@@ -1,0 +1,37 @@
+<div class="back">
+  <header>
+    <h1>Word Frequency</h1>
+    <div class="links">
+      <a href="https://github.com/VictorMuniz7" target="_blank"><i class="fa-brands fa-github"></i></a>
+      <a href="https://www.linkedin.com/in/victor-muniz-236842267/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="input-div">
+      <textarea cols="30" rows="10" placeholder="Paste your text here and click in translate button!" [(ngModel)]="text"></textarea>
+      <div class="error-div" *ngIf="error">
+        <p>This box cannot be empty!</p>
+      </div>
+      <button (click)="translate()">Translate</button>
+    </div>
+
+
+    <div class="table-div" *ngIf="showTable">
+      <table>
+        <caption></caption>
+        <tr>
+          <th style="width: 25%;">Rank</th>
+          <th style="width: 25%;">Times</th>
+          <th style="width: 50%;">Word</th>
+        </tr>
+        <tr *ngFor="let item of resultArray; let i = index">
+          <td>{{ i + 1 }}</td>
+          <td>{{ item.times }}</td>
+          <td>{{ item.word }}</td>
+        </tr>
+      </table>
+   </div>
+
+  </div>
+</div>
